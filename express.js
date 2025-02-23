@@ -2,7 +2,10 @@ const express=require('express');
 const bodyParser=require('body-parser');
 const app=express();
 const axios=require('axios');
+const cors = require('cors');
+
 app.use(bodyParser.json());
+app.use(cors());
 const port=5000;
 
 //post endpoint to access the model prediction
