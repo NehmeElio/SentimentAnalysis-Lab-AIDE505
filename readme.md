@@ -1,4 +1,4 @@
-```markdown
+
 # Sentiment Analysis Project
 
 This project consists of a frontend application for sentiment analysis and a backend server that communicates with a sentiment analysis model.
