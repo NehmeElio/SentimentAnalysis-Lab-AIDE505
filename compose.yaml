@@ -1,0 +1,26 @@
+services:
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    networks:
+      - frontend-backend
+  backend:
+    build: ./backend
+    ports:
+      - "5000:5000"
+    networks:
+      - frontend-backend
+      - backend-ml_model
+  mlmodel:
+    build: ./ml_model
+    ports:
+      - "5001:5001"
+    networks:
+      - backend-ml_model
+
+networks:
+  frontend-backend:
+    driver: bridge
+  backend-ml_model:
+    driver: bridge

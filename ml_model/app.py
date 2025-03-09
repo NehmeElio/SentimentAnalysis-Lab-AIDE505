@@ -2,8 +2,8 @@ from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 from flask import Flask, request, jsonify
 
 analyzer=SentimentIntensityAnalyzer()
-vs=analyzer.polarity_scores("I am happy")
-print(vs)
+# # vs=analyzer.polarity_scores("I am happy")
+# # print(vs)
 
 def get_sentiment_from_polarity_score(polarity_score):
     if polarity_score['compound'] >= 0.05:
@@ -27,4 +27,4 @@ def predict():
         return jsonify({'error': str(e)},400)
 
 if __name__ == '__main__':
-    app.run(debug=True,port=5001)
+    app.run(debug=True,host='0.0.0.0',port=5001)

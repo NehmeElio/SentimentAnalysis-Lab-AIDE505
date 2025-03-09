@@ -16,12 +16,15 @@ export default function App() {
   const handlePredict = async () => {
     if (!text.trim()) {
       setError("Please enter a sentence.");
+      console.log("Error: No text entered.");
       return;
     }
     setLoading(true);
     setError(null);
+    console.log("Sending request to backend...");
     try {
-      const response = await axios.post("http://127.0.0.1:5000/analyze-sentiment", { text });
+      const response = await axios.post("http://localhost:5000/analyze-sentiment", { text });
+      console.log("Response from backend:", response.data);
       setSentiment(response.data.sentiment);
     } catch (err) {
       console.error("Error predicting sentiment:", err);
